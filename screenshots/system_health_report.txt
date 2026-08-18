@@ -1,0 +1,36 @@
+========================================================
+             LINUX SYSTEM HEALTH REPORT
+========================================================
+
+Date        : 2026-08-18 16:45:05
+Hostname    : localhost.localdomain
+OS          : Rocky Linux 9.8
+Kernel      : 5.14.0-687.10.1.el9_8.0.1.x86_64
+
+---------------- SYSTEM ----------------
+Uptime      : 5 minutes
+CPU         : 8 CPUs
+Load        : 5.44, 4.71, 2.15
+
+---------------- MEMORY ----------------
+Total       : 18 GiB
+Used        : 2.4 GiB
+Available   : 16 GiB
+Swap        : 8 GiB
+
+---------------- DISK ------------------
+Root        : 14% used
+Home        : 2% used
+Boot        : 46% used
+
+---------------- NETWORK ---------------
+Interface   : enp0s3
+IP Address  : 10.0.2.15
+Internet    : OK
+
+---------------- DATABASE --------------
+MariaDB     : RUNNING
+
+---------------- SUMMARY ---------------
+System Health : CHECKED
+========================================================
