@@ -2,23 +2,29 @@
              MARIADB RESTORE TEST REPORT
 ========================================================
 
-Date        : 2026-08-19 15:44:47
-Backup File : ./backup/mariadb_2026-08-19_145938.sql
-Test DB     : dba_restore_test_20260819_154447
+Date        : 2026-08-19 15:54:43
+Backup File : ./backup/dba_restore_source.sql
+Source DB   : dba_restore_source
+Test DB     : dba_restore_test_20260819_155443
 
 ---------------- RESTORE ------------------
 Create DB   : SUCCESS
 Restore     : SUCCESS
-Tables      : 0
+Tables      : 3
+
+---------------- DATA VALIDATION ----------
+Departments  : 10
+Employees    : 100000
+Transactions : 100000
 
 ---------------- VALIDATION ---------------
-Validation  : SUCCESS
+Validation   : SUCCESS
 
 ---------------- CLEANUP ------------------
-Test DB     : dba_restore_test_20260819_154447
+Test DB     : dba_restore_test_20260819_155443
 Cleanup     : SUCCESS
 
 ---------------- SUMMARY ------------------
-Restore Test: SUCCESS
-Status      : SUCCESS
+Restore Test : SUCCESS
+Status       : SUCCESS
 ========================================================
