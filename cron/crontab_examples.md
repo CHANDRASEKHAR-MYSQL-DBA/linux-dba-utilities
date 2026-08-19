@@ -1,11 +1,15 @@
-# Daily MySQL Backup
-0 2 * * * /home/mysql/backup.sh
+# =========================================================
+# DBA CRON JOB EXAMPLES
+# =========================================================
 
-# System Health Report
-0 8 * * * /home/system/system_health.sh
+# Daily system health check at 8:00 AM
+0 8 * * * /home/dba/linux-dba-utilities/system/system_health.sh
 
-# Replication Check
-*/10 * * * * /home/mysql/replication_status.sh
+# Daily MariaDB backup at 2:00 AM
+0 2 * * * /home/dba/linux-dba-utilities/mysql/backup.sh
 
-# Disk Usage
-0 */6 * * * /home/system/disk_usage.sh
+# Check replication every 10 minutes
+*/10 * * * * /home/dba/linux-dba-utilities/mysql/replication_status.sh
+
+# Check disk usage every 6 hours
+0 */6 * * * /home/dba/linux-dba-utilities/system/disk_usage.sh
