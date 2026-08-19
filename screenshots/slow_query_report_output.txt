@@ -1,0 +1,20 @@
+========================================================
+               SLOW QUERY REPORT
+========================================================
+
+Date        : 2026-08-19 15:01:24
+Hostname    : localhost.localdomain
+Database    : MariaDB
+Version     : 10.11.8-MariaDB
+
+---------------- CONFIGURATION ------------
+Slow Query Log : OFF
+Long Query Time: 10.000000 seconds
+
+---------------- STATISTICS ---------------
+Slow Queries   : 0
+
+---------------- SUMMARY ------------------
+Report Generation : COMPLETED
+Status            : CHECKED
+========================================================
