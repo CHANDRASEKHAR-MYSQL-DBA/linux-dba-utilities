@@ -1,0 +1,22 @@
+========================================================
+                 DISK USAGE REPORT
+========================================================
+
+Date        : 2026-08-19 14:47:54
+Hostname    : localhost.localdomain
+
+---------------- FILESYSTEMS -------------
+Mount Point     Use%
+/               19%
+/home           2%
+/boot           46%
+
+---------------- THRESHOLD ---------------
+Warning      : 80%
+Critical     : 90%
+
+---------------- SUMMARY -----------------
+Disk Check   : COMPLETED
+Highest Usage: 46%
+Status       : HEALTHY
+========================================================
