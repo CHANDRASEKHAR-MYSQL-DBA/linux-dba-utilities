@@ -1,0 +1,2 @@
+# Run Linux system health check every day at 08:00
+0 8 * * * /path/to/linux-dba-utilities/system/system_health.sh >> /path/to/linux-dba-utilities/logs/system_health_cron.log 2>&1
