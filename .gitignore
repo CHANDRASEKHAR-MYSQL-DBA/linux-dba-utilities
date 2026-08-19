@@ -1,0 +1,13 @@
+# Generated MariaDB backups
+backup/backup_files/
+
+# Runtime logs
+logs/*.log
+backup/logs/*.log
+
+# Temporary restore files
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
