@@ -1,0 +1,23 @@
+Latest backup:
+/chand/linux/linux-dba-utilities/backup/backup_files/mariadb_2026-08-19_172801.sql
+
+
+========================================================
+              MARIADB BACKUP VERIFY REPORT
+========================================================
+
+Date        : 2026-08-19 17:52:52
+Backup File : /chand/linux/linux-dba-utilities/backup/backup_files/mariadb_2026-08-19_172801.sql
+
+---------------- BACKUP ------------------
+Exists      : YES
+File Size   : 20M
+Readable    : YES
+
+---------------- VALIDATION ---------------
+SQL Content : VALID
+
+---------------- SUMMARY ------------------
+Verification: COMPLETED
+Status      : SUCCESS
+========================================================
