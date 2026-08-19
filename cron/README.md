@@ -1,10 +1,12 @@
-Cron automation is used to schedule recurring DBA tasks.
+# Cron Automation
 
-Examples:
-- System health monitoring
-- MariaDB backups
-- Replication checks
-- Disk monitoring
+This directory contains Cron examples for automating Linux and MariaDB DBA tasks.
 
-The examples in this directory are templates and should be
-adjusted according to the server environment.
+## Automation Examples
+
+### System Health Monitoring
+
+Runs the system health script on a scheduled basis.
+
+```cron
+0 8 * * * /path/to/linux-dba-utilities/system/system_health.sh
