@@ -1,1 +1,0 @@
-This file was created accidentally during a repository visibility check and should be removed.
