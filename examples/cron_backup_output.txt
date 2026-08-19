@@ -1,0 +1,105 @@
+========================================================
+                MARIADB BACKUP REPORT
+========================================================
+
+Date        : 2026-08-19 17:18:01
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- BACKUP ------------------
+Backup Type : Logical Full Backup
+Tool        : mysqldump
+Destination : /chand/linux/linux-dba-utilities/backup/backup_files
+File        : /chand/linux/linux-dba-utilities/backup/backup_files/mariadb_2026-08-19_171801.sql
+File Size   : 20M
+Duration    : 1 seconds
+
+---------------- SUMMARY -----------------
+Backup      : SUCCESS
+Exit Code   : 0
+Status      : SUCCESS
+========================================================
+========================================================
+                MARIADB BACKUP REPORT
+========================================================
+
+Date        : 2026-08-19 17:19:01
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- BACKUP ------------------
+Backup Type : Logical Full Backup
+Tool        : mysqldump
+Destination : /chand/linux/linux-dba-utilities/backup/backup_files
+File        : /chand/linux/linux-dba-utilities/backup/backup_files/mariadb_2026-08-19_171901.sql
+File Size   : 20M
+Duration    : 0 seconds
+
+---------------- SUMMARY -----------------
+Backup      : SUCCESS
+Exit Code   : 0
+Status      : SUCCESS
+========================================================
+========================================================
+                MARIADB BACKUP REPORT
+========================================================
+
+Date        : 2026-08-19 17:20:02
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- BACKUP ------------------
+Backup Type : Logical Full Backup
+Tool        : mysqldump
+Destination : /chand/linux/linux-dba-utilities/backup/backup_files
+File        : /chand/linux/linux-dba-utilities/backup/backup_files/mariadb_2026-08-19_172002.sql
+File Size   : 20M
+Duration    : 0 seconds
+
+---------------- SUMMARY -----------------
+Backup      : SUCCESS
+Exit Code   : 0
+Status      : SUCCESS
+========================================================
+========================================================
+                MARIADB BACKUP REPORT
+========================================================
+
+Date        : 2026-08-19 17:21:02
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- BACKUP ------------------
+Backup Type : Logical Full Backup
+Tool        : mysqldump
+Destination : /chand/linux/linux-dba-utilities/backup/backup_files
+File        : /chand/linux/linux-dba-utilities/backup/backup_files/mariadb_2026-08-19_172102.sql
+File Size   : 20M
+Duration    : 0 seconds
+
+---------------- SUMMARY -----------------
+Backup      : SUCCESS
+Exit Code   : 0
+Status      : SUCCESS
+========================================================
+========================================================
+                MARIADB BACKUP REPORT
+========================================================
+
+Date        : 2026-08-19 17:28:01
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- BACKUP ------------------
+Backup Type : Logical Full Backup
+Tool        : mysqldump
+Destination : /chand/linux/linux-dba-utilities/backup/backup_files
+File        : /chand/linux/linux-dba-utilities/backup/backup_files/mariadb_2026-08-19_172801.sql
+File Size   : 20M
+Duration    : 1 seconds
+
+---------------- SUMMARY -----------------
+Backup      : SUCCESS
+Exit Code   : 0
+Status      : SUCCESS
+========================================================
