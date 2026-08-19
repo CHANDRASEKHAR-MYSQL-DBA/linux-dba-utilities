@@ -1,0 +1,19 @@
+========================================================
+              DATABASE SIZE REPORT
+========================================================
+
+Date        : 2026-08-19 15:09:59
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- DATABASES ---------------
+Database                     Size (MB)
+mysql                             3.35
+information_schema                0.20
+sys                               0.03
+performance_schema                0.00
+
+---------------- SUMMARY -----------------
+Database Check : COMPLETED
+Status         : CHECKED
+========================================================
