@@ -1,0 +1,17 @@
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 15:43:30
+Backup Directory: ./backup
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 1
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
