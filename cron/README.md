@@ -1,11 +1,10 @@
-# Cron Job Examples
+Cron automation is used to schedule recurring DBA tasks.
 
-This directory contains cron scheduling examples for Linux DBA automation.
-
-Examples include:
-
-- Daily backups
+Examples:
 - System health monitoring
+- MariaDB backups
 - Replication checks
-- Log cleanup
 - Disk monitoring
+
+The examples in this directory are templates and should be
+adjusted according to the server environment.
