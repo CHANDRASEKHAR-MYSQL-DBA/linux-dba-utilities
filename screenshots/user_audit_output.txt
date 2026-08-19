@@ -1,0 +1,26 @@
+========================================================
+                 MARIADB USER AUDIT
+========================================================
+
+Date        : 2026-08-19 15:01:46
+Hostname    : localhost.localdomain
+Database    : MariaDB
+Version     : 10.11.8-MariaDB
+
+---------------- DATABASE USERS -----------
+User                      Host
+localhost
+localhost.localdomain
+PUBLIC
+mariadb.sys               localhost
+mysql                     localhost
+root                      localhost
+
+---------------- SECURITY CHECK -----------
+Anonymous Users : 2
+
+---------------- SUMMARY ------------------
+User Audit      : COMPLETED
+Privilege Review: REQUIRED
+Status          : CHECKED
+========================================================
