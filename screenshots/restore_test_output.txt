@@ -1,0 +1,24 @@
+========================================================
+             MARIADB RESTORE TEST REPORT
+========================================================
+
+Date        : 2026-08-19 15:44:47
+Backup File : ./backup/mariadb_2026-08-19_145938.sql
+Test DB     : dba_restore_test_20260819_154447
+
+---------------- RESTORE ------------------
+Create DB   : SUCCESS
+Restore     : SUCCESS
+Tables      : 0
+
+---------------- VALIDATION ---------------
+Validation  : SUCCESS
+
+---------------- CLEANUP ------------------
+Test DB     : dba_restore_test_20260819_154447
+Cleanup     : SUCCESS
+
+---------------- SUMMARY ------------------
+Restore Test: SUCCESS
+Status      : SUCCESS
+========================================================
