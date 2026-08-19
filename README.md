@@ -98,7 +98,10 @@ linux-dba-utilities/
 │
 ├── cron/
 │   ├── README.md
-│   └── crontab_examples.md
+│   ├── crontab_examples.md
+│   ├── database_backup.cron
+│   ├── log_cleanup.cron
+│   └── system_health.cron
 │
 ├── logs/
 │   └── README.md
@@ -111,13 +114,17 @@ linux-dba-utilities/
 │   ├── disk_usage_output.txt
 │   ├── mysql_status_output.txt
 │   ├── database_size_output.txt
+│   ├── replication_status_output.txt
+│   ├── slow_query_report_output.txt
+│   ├── user_audit_output.txt
 │   ├── backup_output.txt
 │   ├── backup_verify_output.txt
 │   ├── backup_rotation_output.txt
 │   ├── restore_test_output.txt
-│   ├── replication_status_output.txt
-│   ├── slow_query_report_output.txt
-│   └── user_audit_output.txt
+│   ├── cron_system_health_output.txt
+│   ├── cron_backup_output.txt
+│   ├── cron_backup_verify_output.txt
+│   └── cron_backup_rotation_output.txt
 │
 ├── .gitignore
 ├── LICENSE
@@ -268,8 +275,12 @@ Examples include:
 - Replication status output
 - Slow query report output
 - User audit output
+- Cron system health output
+- Cron MariaDB backup output
+- Cron backup verification output
+- Cron backup rotation output
 
-Cron execution outputs can be added to this directory after capturing the corresponding test runs.
+Cron execution outputs are included to demonstrate the results of scheduled automation jobs.
 
 ---
 
