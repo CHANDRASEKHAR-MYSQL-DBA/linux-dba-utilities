@@ -2,24 +2,26 @@
              LINUX SYSTEM HEALTH REPORT
 ========================================================
 
-Date        : 2026-08-18 16:45:05
+Date        : 2026-08-19 14:46:58
 Hostname    : localhost.localdomain
-OS          : Rocky Linux 9.8
+OS          : Rocky Linux 9.8 (Blue Onyx)
 Kernel      : 5.14.0-687.10.1.el9_8.0.1.x86_64
 
 ---------------- SYSTEM ----------------
-Uptime      : 5 minutes
-CPU         : 8 CPUs
-Load        : 5.44, 4.71, 2.15
+Uptime      : up 9 minutes
+CPU         : 6 CPUs
+CPU Model   : 13th Gen Intel(R) Core(TM) i7-1355U
+Load        : 0.75, 1.79, 1.19
 
 ---------------- MEMORY ----------------
-Total       : 18 GiB
-Used        : 2.4 GiB
-Available   : 16 GiB
-Swap        : 8 GiB
+Total       : 11Gi
+Used        : 3.1Gi
+Available   : 8.1Gi
+Swap        : 5.8Gi
+Swap Used   : 0B
 
 ---------------- DISK ------------------
-Root        : 14% used
+Root        : 19% used
 Home        : 2% used
 Boot        : 46% used
 
@@ -33,4 +35,8 @@ MariaDB     : RUNNING
 
 ---------------- SUMMARY ---------------
 System Health : CHECKED
+Disk Health   : CHECKED
+Memory Health : CHECKED
+Network       : OK
+Database      : RUNNING
 ========================================================
