@@ -1,0 +1,19 @@
+========================================================
+              MARIADB BACKUP VERIFY REPORT
+========================================================
+
+Date        : 2026-08-19 15:42:31
+Backup File : ./backup/mariadb_2026-08-19_145938.sql
+
+---------------- BACKUP ------------------
+Exists      : YES
+File Size   : 2.4M
+Readable    : YES
+
+---------------- VALIDATION ---------------
+SQL Content : VALID
+
+---------------- SUMMARY ------------------
+Verification: COMPLETED
+Status      : SUCCESS
+========================================================
