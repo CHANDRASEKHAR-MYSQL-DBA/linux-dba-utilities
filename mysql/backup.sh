@@ -1,34 +1,56 @@
 #!/bin/bash
-###############################################################################
-# Script Name : backup.sh
-# Title       : Backup
-# Version     : 1.0.0
-# Author      : Chandrasekhar Chittimoju
-# Purpose     : Demonstration DBA utility for GitHub portfolio.
-# Usage       : ./backup.sh [-h]
-# Exit Codes  : 0=Success, 1=Error
-###############################################################################
-
-LOG_DIR="./logs"
+# Common style: readable DBA report, logging, help, and exit status.
+LOG_DIR="${LOG_DIR:-./logs}"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/backup.log"
 
-GREEN="\e[32m"; RED="\e[31m"; YELLOW="\e[33m"; NC="\e[0m"
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
 
-log(){
-  echo "$(date '+%F %T') - $1" | tee -a "$LOG_FILE"
+usage() {
+    echo "Usage: $0 [-h|--help]"
 }
 
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-cat <<EOF
-backup.sh
-Usage: ./backup.sh
-EOF
-exit 0
+log() {
+    echo "$(date '+%F %T') - $1" >> "$LOG_FILE"
+}
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then usage; exit 0; fi
+BACKUP_DIR="${BACKUP_DIR:-./backup}"
+mkdir -p "$BACKUP_DIR"
+DATE=$(date '+%Y-%m-%d %H:%M:%S')
+FILE="$BACKUP_DIR/mariadb_$(date '+%Y-%m-%d_%H%M%S').sql"
+if ! command -v mysqldump >/dev/null 2>&1; then echo "ERROR: mysqldump not found"; exit 1; fi
+START=$(date +%s)
+if mysqldump --all-databases > "$FILE"; then
+    END=$(date +%s); DURATION=$((END-START)); SIZE=$(du -h "$FILE" | awk '{print $1}')
+    RESULT="SUCCESS"; EXIT_CODE=0
+else
+    RESULT="FAILED"; EXIT_CODE=1
 fi
-
-set -o pipefail
-
-DEST=./backup; mkdir -p "$DEST"; FILE="$DEST/all_$(date +%F_%H%M).sql"; mysqldump --all-databases > "$FILE" && log "Backup saved to $FILE"
-
-exit 0
+{
+echo "========================================================"
+echo "                MARIADB BACKUP REPORT"
+echo "========================================================"
+echo
+echo "Date        : $DATE"
+echo "Hostname    : $(hostname)"
+echo "Database    : MariaDB"
+echo
+echo "---------------- BACKUP ------------------"
+echo "Backup Type : Logical Full Backup"
+echo "Tool        : mysqldump"
+echo "Destination : $BACKUP_DIR"
+echo "File        : $FILE"
+echo "File Size   : ${SIZE:-N/A}"
+echo "Duration    : ${DURATION:-N/A} seconds"
+echo
+echo "---------------- SUMMARY -----------------"
+echo "Backup      : $RESULT"
+echo "Exit Code   : $EXIT_CODE"
+echo "Status      : $RESULT"
+echo "========================================================"
+} | tee "$LOG_FILE"
+exit "$EXIT_CODE"
