@@ -1,0 +1,21 @@
+========================================================
+                MARIADB BACKUP REPORT
+========================================================
+
+Date        : 2026-08-19 14:59:38
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- BACKUP ------------------
+Backup Type : Logical Full Backup
+Tool        : mysqldump
+Destination : ./backup
+File        : ./backup/mariadb_2026-08-19_145938.sql
+File Size   : 2.4M
+Duration    : 1 seconds
+
+---------------- SUMMARY -----------------
+Backup      : SUCCESS
+Exit Code   : 0
+Status      : SUCCESS
+========================================================
