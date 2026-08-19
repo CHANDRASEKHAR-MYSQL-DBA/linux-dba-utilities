@@ -1,0 +1,24 @@
+========================================================
+              MARIADB SERVER STATUS REPORT
+========================================================
+
+Date        : 2026-08-19 15:00:29
+Hostname    : localhost.localdomain
+Database    : MariaDB
+Version     : 10.11.8-MariaDB
+
+---------------- SERVICE -----------------
+Service     : mariadb
+Status      : ACTIVE / RUNNING
+
+---------------- SERVER ------------------
+Uptime      : 995 seconds
+Connections : 1
+Questions   : 471
+Slow Queries: 0
+
+---------------- SUMMARY -----------------
+Database    : MariaDB
+Health Check: COMPLETED
+Status      : RUNNING
+========================================================
