@@ -1,34 +1,54 @@
 #!/bin/bash
-###############################################################################
-# Script Name : replication_status.sh
-# Title       : Replication Status
-# Version     : 1.0.0
-# Author      : Chandrasekhar Chittimoju
-# Purpose     : Demonstration DBA utility for GitHub portfolio.
-# Usage       : ./replication_status.sh [-h]
-# Exit Codes  : 0=Success, 1=Error
-###############################################################################
-
-LOG_DIR="./logs"
+# Common style: readable DBA report, logging, help, and exit status.
+LOG_DIR="${LOG_DIR:-./logs}"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/replication_status.log"
 
-GREEN="\e[32m"; RED="\e[31m"; YELLOW="\e[33m"; NC="\e[0m"
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
 
-log(){
-  echo "$(date '+%F %T') - $1" | tee -a "$LOG_FILE"
+usage() {
+    echo "Usage: $0 [-h|--help]"
 }
 
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-cat <<EOF
-replication_status.sh
-Usage: ./replication_status.sh
-EOF
-exit 0
+log() {
+    echo "$(date '+%F %T') - $1" >> "$LOG_FILE"
+}
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then usage; exit 0; fi
+DATE=$(date '+%Y-%m-%d %H:%M:%S')
+RAW=$(mysql -e "SHOW REPLICA STATUS\G" 2>/dev/null)
+if [[ -z "$RAW" ]]; then RAW=$(mysql -e "SHOW SLAVE STATUS\G" 2>/dev/null); fi
+IO=$(awk -F': ' '/Replica_IO_Running:|Slave_IO_Running:/ {print $2; exit}' <<< "$RAW")
+SQL=$(awk -F': ' '/Replica_SQL_Running:|Slave_SQL_Running:/ {print $2; exit}' <<< "$RAW")
+LAG=$(awk -F': ' '/Seconds_Behind_Source:|Seconds_Behind_Master:/ {print $2; exit}' <<< "$RAW")
+MASTER=$(awk -F': ' '/Source_Host:|Master_Host:/ {print $2; exit}' <<< "$RAW")
+if [[ -z "$RAW" ]]; then STATUS="NOT CONFIGURED"; else
+    if [[ "$IO" == "Yes" && "$SQL" == "Yes" ]]; then STATUS="HEALTHY"; else STATUS="WARNING"; fi
 fi
-
-set -o pipefail
-
-mysql -e "SHOW REPLICA STATUS\G" 2>/dev/null || mysql -e "SHOW SLAVE STATUS\G"
-
-exit 0
+{
+echo "========================================================"
+echo "             MARIADB REPLICATION REPORT"
+echo "========================================================"
+echo
+echo "Date        : $DATE"
+echo "Hostname    : $(hostname)"
+echo "Database    : MariaDB"
+echo "Version     : $(mysql -Nse 'SELECT VERSION();' 2>/dev/null)"
+echo
+echo "---------------- REPLICATION -------------"
+echo "IO Thread   : ${IO:-N/A}"
+echo "SQL Thread  : ${SQL:-N/A}"
+echo "Seconds Behind: ${LAG:-N/A}"
+echo "Master Host : ${MASTER:-N/A}"
+echo
+echo "---------------- HEALTH CHECK ------------"
+echo "Replication Status : $STATUS"
+echo
+echo "---------------- SUMMARY -----------------"
+echo "Replication Check  : COMPLETED"
+echo "Status             : $STATUS"
+echo "========================================================"
+} | tee "$LOG_FILE"
