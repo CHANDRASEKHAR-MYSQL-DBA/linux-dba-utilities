@@ -1,0 +1,449 @@
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:29:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:30:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:31:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:32:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:33:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:34:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:35:03
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:36:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:37:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:38:03
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:39:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:40:03
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:41:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:42:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:43:04
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:44:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:45:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:46:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:47:03
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:48:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:49:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:50:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:51:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:52:02
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
+
+========================================================
+             MARIADB BACKUP ROTATION REPORT
+========================================================
+
+Date            : 2026-08-19 17:53:01
+Backup Directory: /chand/linux/linux-dba-utilities/backup/backup_files
+Retention Days  : 7
+
+---------------- ROTATION -----------------
+Old Backups     : 0
+Deleted         : 0
+Remaining       : 7
+
+---------------- SUMMARY ------------------
+Rotation        : COMPLETED
+Status          : SUCCESS
+========================================================
