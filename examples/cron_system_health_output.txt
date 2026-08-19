@@ -1,0 +1,168 @@
+========================================================
+             LINUX SYSTEM HEALTH REPORT
+========================================================
+
+Date        : 2026-08-19 17:08:01
+Hostname    : localhost.localdomain
+OS          : Rocky Linux 9.8 (Blue Onyx)
+Kernel      : 5.14.0-687.10.1.el9_8.0.1.x86_64
+
+---------------- SYSTEM ----------------
+Uptime      : up 2 hours, 30 minutes
+CPU         : 6 CPUs
+CPU Model   : 13th Gen Intel(R) Core(TM) i7-1355U
+Load        : 0.85, 1.04, 1.07
+
+---------------- MEMORY ----------------
+Total       : 11Gi
+Used        : 6.2Gi
+Available   : 4.9Gi
+Swap        : 5.8Gi
+Swap Used   : 0B
+
+---------------- DISK ------------------
+Root        : 19% used
+Home        : 3% used
+Boot        : 46% used
+
+---------------- NETWORK ---------------
+Interface   : N/A
+IP Address  : N/A
+Internet    : OK
+
+---------------- DATABASE --------------
+MariaDB     : RUNNING
+
+---------------- SUMMARY ---------------
+System Health : CHECKED
+Disk Health   : CHECKED
+Memory Health : CHECKED
+Network       : OK
+Database      : RUNNING
+========================================================
+========================================================
+             LINUX SYSTEM HEALTH REPORT
+========================================================
+
+Date        : 2026-08-19 17:09:02
+Hostname    : localhost.localdomain
+OS          : Rocky Linux 9.8 (Blue Onyx)
+Kernel      : 5.14.0-687.10.1.el9_8.0.1.x86_64
+
+---------------- SYSTEM ----------------
+Uptime      : up 2 hours, 31 minutes
+CPU         : 6 CPUs
+CPU Model   : 13th Gen Intel(R) Core(TM) i7-1355U
+Load        : 1.62, 1.29, 1.16
+
+---------------- MEMORY ----------------
+Total       : 11Gi
+Used        : 6.3Gi
+Available   : 4.9Gi
+Swap        : 5.8Gi
+Swap Used   : 0B
+
+---------------- DISK ------------------
+Root        : 19% used
+Home        : 3% used
+Boot        : 46% used
+
+---------------- NETWORK ---------------
+Interface   : N/A
+IP Address  : N/A
+Internet    : OK
+
+---------------- DATABASE --------------
+MariaDB     : RUNNING
+
+---------------- SUMMARY ---------------
+System Health : CHECKED
+Disk Health   : CHECKED
+Memory Health : CHECKED
+Network       : OK
+Database      : RUNNING
+========================================================
+========================================================
+             LINUX SYSTEM HEALTH REPORT
+========================================================
+
+Date        : 2026-08-19 17:10:01
+Hostname    : localhost.localdomain
+OS          : Rocky Linux 9.8 (Blue Onyx)
+Kernel      : 5.14.0-687.10.1.el9_8.0.1.x86_64
+
+---------------- SYSTEM ----------------
+Uptime      : up 2 hours, 32 minutes
+CPU         : 6 CPUs
+CPU Model   : 13th Gen Intel(R) Core(TM) i7-1355U
+Load        : 0.66, 1.08, 1.09
+
+---------------- MEMORY ----------------
+Total       : 11Gi
+Used        : 6.2Gi
+Available   : 4.9Gi
+Swap        : 5.8Gi
+Swap Used   : 0B
+
+---------------- DISK ------------------
+Root        : 19% used
+Home        : 3% used
+Boot        : 46% used
+
+---------------- NETWORK ---------------
+Interface   : N/A
+IP Address  : N/A
+Internet    : OK
+
+---------------- DATABASE --------------
+MariaDB     : RUNNING
+
+---------------- SUMMARY ---------------
+System Health : CHECKED
+Disk Health   : CHECKED
+Memory Health : CHECKED
+Network       : OK
+Database      : RUNNING
+========================================================
+========================================================
+             LINUX SYSTEM HEALTH REPORT
+========================================================
+
+Date        : 2026-08-19 17:11:02
+Hostname    : localhost.localdomain
+OS          : Rocky Linux 9.8 (Blue Onyx)
+Kernel      : 5.14.0-687.10.1.el9_8.0.1.x86_64
+
+---------------- SYSTEM ----------------
+Uptime      : up 2 hours, 33 minutes
+CPU         : 6 CPUs
+CPU Model   : 13th Gen Intel(R) Core(TM) i7-1355U
+Load        : 0.28, 0.90, 1.03
+
+---------------- MEMORY ----------------
+Total       : 11Gi
+Used        : 6.3Gi
+Available   : 4.9Gi
+Swap        : 5.8Gi
+Swap Used   : 0B
+
+---------------- DISK ------------------
+Root        : 19% used
+Home        : 3% used
+Boot        : 46% used
+
+---------------- NETWORK ---------------
+Interface   : N/A
+IP Address  : N/A
+Internet    : OK
+
+---------------- DATABASE --------------
+MariaDB     : RUNNING
+
+---------------- SUMMARY ---------------
+System Health : CHECKED
+Disk Health   : CHECKED
+Memory Health : CHECKED
+Network       : OK
+Database      : RUNNING
+========================================================
