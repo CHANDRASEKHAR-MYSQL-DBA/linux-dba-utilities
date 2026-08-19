@@ -2,7 +2,7 @@
 
 A collection of practical Linux shell scripts developed for MySQL and MariaDB database administration, system monitoring, backup management, recovery validation, and automation.
 
-The project is built and tested in a Rocky Linux environment with MariaDB and is intended as a practical DBA automation and learning toolkit.
+The project is built and tested in a Rocky Linux lab environment with MariaDB and is intended as a practical DBA automation and learning toolkit.
 
 ---
 
@@ -30,6 +30,7 @@ The project is built and tested in a Rocky Linux environment with MariaDB and is
 
 - Logical MariaDB backup using `mysqldump`
 - Backup verification
+- Automatic latest-backup verification
 - Backup rotation and retention
 - Restore testing
 - Restore data validation
@@ -40,6 +41,8 @@ The project is built and tested in a Rocky Linux environment with MariaDB and is
 - Cron job examples
 - Scheduled system health checks
 - Scheduled database backups
+- Scheduled backup verification
+- Scheduled backup rotation
 - Log cleanup automation
 
 ### Documentation & Examples
@@ -90,7 +93,8 @@ linux-dba-utilities/
 │   ├── backup.sh
 │   ├── backup_verify.sh
 │   ├── backup_rotation.sh
-│   └── restore_test.sh
+│   ├── restore_test.sh
+│   └── verify_latest_backup.sh
 │
 ├── cron/
 │   ├── README.md
@@ -100,6 +104,7 @@ linux-dba-utilities/
 │   └── README.md
 │
 ├── examples/
+│   ├── README.md
 │   ├── system_health_output.txt
 │   ├── cpu_usage_output.txt
 │   ├── memory_usage_output.txt
@@ -114,6 +119,7 @@ linux-dba-utilities/
 │   ├── slow_query_report_output.txt
 │   └── user_audit_output.txt
 │
+├── .gitignore
 ├── LICENSE
 └── README.md
 ```
@@ -148,134 +154,64 @@ chmod +x backup/*.sh
 
 ### System Monitoring
 
-Navigate to the system directory:
-
 ```bash
 cd system
-```
-
-Run the system health check:
-
-```bash
 ./system_health.sh
-```
-
-Run individual monitoring scripts:
-
-```bash
 ./cpu_usage.sh
 ./memory_usage.sh
 ./disk_usage.sh
 ```
 
----
-
-## MySQL / MariaDB Administration
-
-Navigate to the MySQL directory:
+### MySQL / MariaDB Administration
 
 ```bash
 cd mysql
-```
-
-Check MariaDB server status:
-
-```bash
 ./mysql_status.sh
-```
-
-Check database sizes:
-
-```bash
 ./database_size.sh
-```
-
-Check replication status:
-
-```bash
 ./replication_status.sh
-```
-
-Generate a slow query report:
-
-```bash
 ./slow_query_report.sh
-```
-
-Audit database users:
-
-```bash
 ./user_audit.sh
 ```
 
----
-
-## Backup & Recovery
+### Backup & Recovery
 
 Backup utilities are maintained separately from the MySQL administration scripts.
-
-Navigate to the backup directory:
 
 ```bash
 cd backup
 ```
 
-### Create a Backup
+Create a logical backup:
 
 ```bash
 ./backup.sh
 ```
 
-The script creates a logical MariaDB backup using `mysqldump`.
-
-### Verify a Backup
+Verify a specific backup:
 
 ```bash
-./backup_verify.sh ./backup/dba_restore_source.sql
+./backup_verify.sh ./backup_files/<backup_file>.sql
 ```
 
-The verification script checks:
+Verify the latest backup automatically:
 
-- Backup file existence
-- File readability
-- SQL content
-- Backup validation status
+```bash
+./verify_latest_backup.sh
+```
 
-### Backup Rotation
+Rotate backups according to the configured retention period:
 
 ```bash
 ./backup_rotation.sh
 ```
 
-The rotation script manages old backup files according to the configured retention period.
-
-### Restore Test
+Run a restore validation test:
 
 ```bash
-./restore_test.sh ./backup/dba_restore_source.sql
+./restore_test.sh ./backup_files/<backup_file>.sql
 ```
 
-The restore test:
-
-1. Creates a temporary test database
-2. Restores the backup
-3. Validates the restored tables
-4. Validates row counts
-5. Removes the temporary database
-
-Example validation:
-
-```text
-Tables       : 3
-Departments  : 10
-Employees    : 100000
-Transactions : 100000
-
-Restore Test : SUCCESS
-Status       : SUCCESS
-```
-
-The restore workflow was tested using a MariaDB test dataset containing approximately 200,010 rows.
+The restore test creates a temporary database, restores the backup, validates the restored data, and removes the temporary database.
 
 ---
 
@@ -283,22 +219,23 @@ The restore workflow was tested using a MariaDB test dataset containing approxim
 
 Cron examples are maintained in the `cron/` directory.
 
-```bash
-cd cron
+The tested automation workflow is:
+
+```text
+02:00 → MariaDB backup
+02:15 → Latest backup verification
+03:00 → Backup rotation
+04:00 Sunday → Log cleanup
+08:00 → Linux system health check
 ```
-
-The Cron section demonstrates how DBA scripts can be scheduled for:
-
-- System health checks
-- Database backups
-- Backup rotation
-- Log cleanup
 
 Example backup Cron job:
 
 ```cron
-0 2 * * * /path/to/linux-dba-utilities/backup/backup.sh
+0 2 * * * /path/to/linux-dba-utilities/backup/backup.sh >> /path/to/linux-dba-utilities/logs/database_backup_cron.log 2>&1
 ```
+
+See `cron/crontab_examples.md` for the complete example configuration.
 
 ---
 
@@ -332,7 +269,7 @@ Examples include:
 - Slow query report output
 - User audit output
 
-These files demonstrate the expected output format of the utilities.
+Cron execution outputs can be added to this directory after capturing the corresponding test runs.
 
 ---
 
@@ -370,17 +307,19 @@ The test environment is used for development, validation, and demonstration purp
 
 - [x] MariaDB logical backup
 - [x] Backup verification
+- [x] Automated latest-backup verification
 - [x] Backup rotation
 - [x] Restore testing
 - [x] Restore data validation
 
 ### Phase 3 — Automation
 
-- [ ] System health Cron job
-- [ ] Automated database backup
-- [ ] Automated backup rotation
-- [ ] Log cleanup automation
-- [ ] Cron execution examples
+- [x] System health Cron job testing
+- [x] Automated database backup testing
+- [x] Automated latest-backup verification testing
+- [x] Automated backup rotation testing
+- [x] Log cleanup automation example
+- [x] Cron execution testing
 
 ### Phase 4 — Advanced DBA Monitoring
 
