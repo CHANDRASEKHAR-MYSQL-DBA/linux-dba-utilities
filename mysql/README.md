@@ -1,4 +1,3 @@
-START
 # MySQL Administration Scripts
 
 
@@ -219,19 +218,3 @@ Review SQL commands before execution.
 Author
 
 CHANDRASEKHAR-MYSQL-DBA
-
-
-
-# END
-
-
----
-
-
-After pasting:
-
-
-```bash
-git add mysql/README.md
-git commit -m "Update MySQL administration scripts documentation"
-git push
