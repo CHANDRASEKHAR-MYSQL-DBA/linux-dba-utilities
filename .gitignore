@@ -13,4 +13,6 @@ backup/logs/*.log
 Thumbs.db
 *.bak
 logs/
+*.bak
+*.alert_bak
 examples/*output*.txt
