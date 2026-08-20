@@ -1,0 +1,3 @@
+# MariaDB process monitor every 5 minutes
+
+*/5 * * * * /chand/linux/linux-dba-utilities/mysql/process_monitor.sh >> /chand/linux/linux-dba-utilities/logs/process_monitor_cron.log 2>&1

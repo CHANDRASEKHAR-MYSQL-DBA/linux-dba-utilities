@@ -1,2 +1,3 @@
 # Run MariaDB backup every day at 02:00
-0 2 * * * /path/to/linux-dba-utilities/backup/backup.sh >> /path/to/linux-dba-utilities/logs/database_backup_cron.log 2>&1
+
+0 2 * * * /chand/linux/linux-dba-utilities/backup/backup.sh >> /chand/linux/linux-dba-utilities/logs/database_backup_cron.log 2>&1

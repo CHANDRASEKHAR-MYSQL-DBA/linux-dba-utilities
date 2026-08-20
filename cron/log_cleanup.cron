@@ -1,2 +1,3 @@
 # Remove log files older than 7 days every Sunday at 03:00
-0 3 * * 0 find /path/to/linux-dba-utilities/logs -type f -name "*.log" -mtime +7 -delete
+
+0 3 * * 0 find /chand/linux/linux-dba-utilities/logs -type f -name "*.log" -mtime +7 -delete

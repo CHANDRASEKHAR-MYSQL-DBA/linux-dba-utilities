@@ -1,0 +1,12 @@
+# Run MariaDB backup every day at 02:00
+
+0 2 * * * /chand/linux/linux-dba-utilities/backup/backup.sh >> /chand/linux/linux-dba-utilities/logs/database_backup_cron.log 2>&1
+# Run Linux system health check every day at 08:00
+
+0 8 * * * /chand/linux/linux-dba-utilities/system/system_health.sh >> /chand/linux/linux-dba-utilities/logs/system_health_cron.log 2>&1
+# MariaDB process monitor every 5 minutes
+
+*/5 * * * * /chand/linux/linux-dba-utilities/mysql/process_monitor.sh >> /chand/linux/linux-dba-utilities/logs/process_monitor_cron.log 2>&1
+# Remove log files older than 7 days every Sunday at 03:00
+
+0 3 * * 0 find /chand/linux/linux-dba-utilities/logs -type f -name "*.log" -mtime +7 -delete
