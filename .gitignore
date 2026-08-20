@@ -11,3 +11,6 @@ backup/logs/*.log
 # OS files
 .DS_Store
 Thumbs.db
+*.bak
+logs/
+examples/*output*.txt
