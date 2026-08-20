@@ -1,0 +1,47 @@
+========================================================
+             MARIADB PROCESS MONITOR
+========================================================
+
+Date        : 2026-08-20 12:30:57
+Hostname    : localhost.localdomain
+Database    : MariaDB
+
+---------------- SERVICE ----------------
+MariaDB     : RUNNING
+
+---------------- CONNECTIONS ----------------
+Total Connections  : 8
+Active Connections : 1
+Max Connections    : 151
+Usage              : 5.30%
+
+---------------- SESSIONS ----------------
+Sleeping Connections : 7
+
+---------------- LONG RUNNING ----------------
+
+---------------- TOP PROCESSES ----------------
++-----+-------+-----------+------------+---------+------+----------------------+
+| ID  | USER  | HOST      | DB         | COMMAND | TIME | STATE                |
++-----+-------+-----------+------------+---------+------+----------------------+
+|   3 | root  | localhost | NULL       | Sleep   | 2142 |                      |
+|   4 | root  | localhost | NULL       | Sleep   | 2138 |                      |
+|   5 | chand | localhost | NULL       | Sleep   | 2128 |                      |
+|   8 | chand | localhost | company_db | Sleep   | 1735 |                      |
+|  36 | chand | localhost | NULL       | Sleep   | 1017 |                      |
+| 100 | root  | localhost | NULL       | Sleep   |  911 |                      |
+| 101 | root  | localhost | blog_db    | Sleep   |  828 |                      |
+| 174 | root  | localhost | NULL       | Query   |    0 | Filling schema table |
++-----+-------+-----------+------------+---------+------+----------------------+
+
+---------------- SUMMARY ----------------
+Process Monitor     : COMPLETED
+Total Connections   : 8
+Active Connections  : 1
+Sleeping Connections: 7
+Long Running Queries: 0
+Connection Usage    : 5.30%
+Connection Status   : HEALTHY
+Status              : SUCCESS
+Connection Message  : Connection usage is within normal range
+========================================================
