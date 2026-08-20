@@ -1,141 +1,118 @@
-# MySQL Administration Scripts
+# MySQL / MariaDB Administration Scripts
 
+This directory contains Bash utilities for common MySQL and MariaDB database administration and operational monitoring tasks.
 
-This directory contains shell scripts for MySQL and MariaDB database administration tasks.
+## Scripts
 
+### mysql_status.sh
 
-These utilities help DBAs perform common operational activities such as:
-
-
-- Database status monitoring
-- Backup validation
-- Replication health checks
-- Slow query analysis
-- User auditing
-- Process and connection monitoring
-
-
-
-
-# Scripts
-
-
-## mysql_status.sh
-
-
-Checks MySQL/MariaDB service status and basic database availability.
-
-
-Example:
-
+Checks MySQL/MariaDB service status and basic database connectivity.
 
 ```bash
 ./mysql_status.sh
+```
 
-Checks:
+Checks include:
 
-Database service status
-Database connectivity
-Server availability
-database_size.sh
+- Database service status
+- Database connectivity
+- Server availability
 
-Displays database and table size information.
+### database_size.sh
 
-Example:
+Reports database and table storage usage.
 
+```bash
 ./database_size.sh
+```
 
 Provides:
 
-Database size
-Table size information
-Storage usage details
-replication_status.sh
+- Database size
+- Table size information
+- Storage usage details
+
+### replication_status.sh
 
 Checks MySQL/MariaDB replication health.
 
-Example:
-
+```bash
 ./replication_status.sh
+```
 
-Checks:
+Checks include:
 
-Replication status
-IO thread status
-SQL thread status
-Replication errors
-slow_query_report.sh
+- Replication status
+- I/O thread status
+- SQL thread status
+- Replication errors
 
-Generates a report from MySQL/MariaDB slow query logs.
+### slow_query_report.sh
 
-Example:
+Generates a report from MySQL/MariaDB slow query information.
 
+```bash
 ./slow_query_report.sh
+```
 
 Provides:
 
-Slow running queries
-Query execution details
-Performance analysis information
-user_audit.sh
+- Slow-running queries
+- Query execution details
+- Performance analysis information
+
+### user_audit.sh
 
 Audits database users and privileges.
 
-Example:
-
+```bash
 ./user_audit.sh
+```
 
-Checks:
+Checks include:
 
-Database users
-User privileges
-Account information
-process_monitor.sh
+- Database users
+- User privileges
+- Account information
+
+### process_monitor.sh
 
 Monitors MariaDB processes and connection health.
 
-Example:
-
+```bash
 ./process_monitor.sh
-Monitoring Checks
+```
 
-The script checks:
+Monitoring checks include:
 
-MariaDB service status
-Total connections
-Active connections
-Sleeping connections
-Maximum connection usage
-Connection health status
-Long running queries
-Top running sessions
-Connection Health Threshold
+- MariaDB service status
+- Total connections
+- Active connections
+- Sleeping connections
+- Maximum connection usage
+- Connection health status
+- Long-running queries
+- Top running sessions
 
-The script evaluates connection usage based on configured limits.
+## Connection Health Thresholds
 
-Usage < 70%
-Status : HEALTHY
+The process monitor evaluates connection usage using configured thresholds:
 
+```text
+Usage < 70%             → HEALTHY
+70% <= Usage < 85%      → WARNING
+Usage >= 85%            → CRITICAL
+```
 
+## Example Output
 
-
-Usage >= 70% and < 85%
-Status : WARNING
-
-
-
-
-Usage >= 85%
-Status : CRITICAL
-Example Output
+```text
 ========================================================
              MARIADB PROCESS MONITOR
 ========================================================
 
-
 ---------------- SERVICE ----------------
 MariaDB     : RUNNING
-
 
 ---------------- CONNECTIONS ----------------
 Total Connections  : 8
@@ -143,13 +120,10 @@ Active Connections : 1
 Max Connections    : 151
 Usage              : 5.30%
 
-
 ---------------- SESSIONS ----------------
 Sleeping Connections : 7
 
-
 ---------------- LONG RUNNING ----------------
-
 
 ---------------- SUMMARY ----------------
 Process Monitor     : COMPLETED
@@ -162,59 +136,74 @@ Connection Status   : HEALTHY
 Status              : SUCCESS
 Connection Message  : Connection usage is within normal range
 
-
 ========================================================
+```
 
-Sample execution output is available:
+A sample execution output is available in:
 
+```text
 examples/process_monitor_output.txt
-Requirements
+```
+
+## Requirements
 
 Before running the scripts, ensure:
 
-MySQL or MariaDB server is installed
-Database service is running
-MySQL client package is available
-User has required database privileges
+- MySQL or MariaDB server is installed
+- Database service is running
+- MySQL/MariaDB client package is available
+- The user has the required database privileges
 
-Example:
+Check the client:
 
+```bash
 mysql --version
+```
 
-Example:
+Check MariaDB:
 
+```bash
 systemctl status mariadb
-Permissions
+```
 
-Make scripts executable before execution.
+## Permissions
 
-Example:
+Make the scripts executable before execution:
 
+```bash
 chmod +x *.sh
-Testing Environment
+```
 
-Scripts were tested on:
+## Testing Environment
 
+The scripts were tested on:
+
+```text
 Operating System : Rocky Linux 9.8
 Database         : MariaDB 10.11.8
 Architecture     : x86_64
+Shell            : Bash
 Virtualization   : Oracle VirtualBox
-Project Structure
-mysql/
-│
-├── README.md
-│
-├── mysql_status.sh
-├── database_size.sh
-├── replication_status.sh
-├── slow_query_report.sh
-├── user_audit.sh
-└── process_monitor.sh
-Safety Notes
-Test scripts in a non-production environment before production usage.
-Do not store database passwords inside scripts.
-Use secure authentication methods.
-Review SQL commands before execution.
-Author
+```
+
+## Safety Notes
+
+- Test scripts in a non-production environment before production usage.
+- Do not store database passwords inside scripts.
+- Use secure authentication methods.
+- Review SQL commands before execution.
+- Review privileges before running administrative operations.
+
+## Related Components
+
+The repository also contains:
+
+- `dba_health_check.sh` for consolidated DBA health reporting
+- `alerts/alert_manager.sh` for threshold-based alerts
+- `log_manager.sh` for local log retention management
+- `backup/` for backup and recovery operations
+- `system/` for Linux server health monitoring
+
+## Author
 
 CHANDRASEKHAR-MYSQL-DBA
