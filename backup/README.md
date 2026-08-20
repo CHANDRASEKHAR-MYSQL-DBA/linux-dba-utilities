@@ -14,7 +14,7 @@ Example:
 ./backup.sh
 ```
 
-Backups are stored in the local `backup_files/` directory.
+Backups are stored in the configured `backup_files/` directory.
 
 Example backup location:
 
@@ -23,7 +23,13 @@ backup/backup_files/
 └── mariadb_YYYY-MM-DD_HHMMSS.sql
 ```
 
-The script uses a script-relative backup path, so it can be executed from different directories without changing the backup destination.
+The current Rocky Linux test environment uses:
+
+```text
+/chand/linux/linux-dba-utilities/backup/backup_files
+```
+
+When deploying to another environment, update the configured backup path in the script as required.
 
 ---
 
@@ -45,27 +51,6 @@ Checks include:
 - SQL dump content
 - Validation status
 
-Example result:
-
-```text
-========================================================
-              MARIADB BACKUP VERIFY REPORT
-========================================================
-
----------------- BACKUP ------------------
-Exists      : YES
-File Size   : 17M
-Readable    : YES
-
----------------- VALIDATION ---------------
-SQL Content : VALID
-
----------------- SUMMARY ------------------
-Verification: COMPLETED
-Status      : SUCCESS
-========================================================
-```
-
 ---
 
 ### verify_latest_backup.sh
@@ -86,20 +71,6 @@ The script:
 - Verifies readability
 - Validates SQL dump content
 - Returns the verification status
-
-Example:
-
-```text
-Latest backup:
-/path/to/backup_files/mariadb_2026-08-19_172002.sql
-
-========================================================
-              MARIADB BACKUP VERIFY REPORT
-========================================================
-
-Verification: COMPLETED
-Status      : SUCCESS
-```
 
 This utility is designed to support automated backup verification through Cron.
 
@@ -123,30 +94,6 @@ Example:
 
 The script removes backup files older than the configured retention period.
 
-Example result:
-
-```text
-========================================================
-             MARIADB BACKUP ROTATION REPORT
-========================================================
-
-Date            : 2026-08-19 17:24:38
-Backup Directory: /path/to/backup_files
-Retention Days  : 7
-
----------------- ROTATION -----------------
-Old Backups     : 0
-Deleted         : 0
-Remaining       : 6
-
----------------- SUMMARY ------------------
-Rotation        : COMPLETED
-Status          : SUCCESS
-========================================================
-```
-
-The rotation utility was tested from both the repository directory and `/tmp` to verify that it does not depend on the current working directory.
-
 ---
 
 ### restore_test.sh
@@ -169,35 +116,6 @@ The restore test validates:
 - Transaction row count
 - Data validation
 - Temporary database cleanup
-
-Example validation:
-
-```text
-========================================================
-             MARIADB RESTORE TEST REPORT
-========================================================
-
----------------- RESTORE ------------------
-Create DB   : SUCCESS
-Restore     : SUCCESS
-Tables      : 3
-
----------------- DATA VALIDATION ----------
-Departments  : 10
-Employees    : 100000
-Transactions : 100000
-
----------------- VALIDATION ---------------
-Validation   : SUCCESS
-
----------------- CLEANUP ------------------
-Cleanup      : SUCCESS
-
----------------- SUMMARY ------------------
-Restore Test : SUCCESS
-Status       : SUCCESS
-========================================================
-```
 
 ---
 
@@ -245,8 +163,6 @@ The utilities can be combined to provide a complete backup and recovery workflow
 ---
 
 ## Automated Backup Workflow
-
-The backup utilities can be automated using Linux Cron.
 
 ```text
 02:00
@@ -296,7 +212,7 @@ Example Cron configuration:
 0 3 * * * /path/to/linux-dba-utilities/backup/backup_rotation.sh >> /path/to/linux-dba-utilities/logs/backup_rotation_cron.log 2>&1
 ```
 
-The actual test environment used:
+The Rocky Linux test environment used:
 
 ```text
 /chand/linux/linux-dba-utilities
@@ -320,41 +236,11 @@ Total Rows     : 200,010
 Backup Size    : 17 MB
 ```
 
-### Data Validation
-
-The test dataset contains:
-
-```text
-Departments
-------------
-10 rows
-
-Employees
----------
-100,000 rows
-
-Transactions
-------------
-100,000 rows
-```
-
-Employee distribution was validated across 10 departments with 10,000 employees per department.
-
-Transaction status distribution:
-
-```text
-COMPLETED : 90,000
-FAILED    : 5,000
-PENDING   : 5,000
-```
-
-The backup was successfully created and restored into a temporary test database.
+The test dataset was used to validate backup restoration and data integrity in a temporary database.
 
 ---
 
 ## Testing Environment
-
-The backup and restore utilities were tested on:
 
 ```text
 Operating System : Rocky Linux 9.8
@@ -406,10 +292,6 @@ backup_rotation_output.txt
 restore_test_output.txt
 ```
 
-Cron execution outputs can be added after capturing the corresponding Cron test runs.
-
-These files contain sample execution results from testing the utilities on Rocky Linux with MariaDB.
-
 ---
 
 ## Cron Management
@@ -438,21 +320,9 @@ Review Cron activity:
 journalctl -u crond
 ```
 
-Example Cron workflow:
-
-```text
-02:00 → MariaDB backup
-02:15 → Latest backup verification
-03:00 → Backup rotation
-04:00 Sunday → Log cleanup
-08:00 → Linux system health check
-```
-
 ---
 
 ## Safety
-
-The restore test uses a temporary database for validation and removes the temporary database after the test completes.
 
 Always test backup and restore scripts in a non-production environment before using them on production systems.
 
