@@ -1,4 +1,10 @@
 #!/bin/bash
+LOG_DIR="/chand/linux/linux-dba-utilities/logs"
+LOG_FILE="$LOG_DIR/process_monitor.log"
+
+mkdir -p "$LOG_DIR"
+
+exec > >(tee -a "$LOG_FILE") 2>&1
 
 echo "========================================================"
 echo "             MARIADB PROCESS MONITOR"

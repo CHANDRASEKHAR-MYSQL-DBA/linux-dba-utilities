@@ -1,4 +1,10 @@
 #!/bin/bash
+LOG_DIR="/chand/linux/linux-dba-utilities/logs"
+LOG_FILE="$LOG_DIR/backup.log"
+
+mkdir -p "$LOG_DIR"
+
+exec > >(tee -a "$LOG_FILE") 2>&1
 # Common style: readable DBA report, logging, help, and exit status.
 LOG_DIR="${LOG_DIR:-./logs}"
 mkdir -p "$LOG_DIR"
@@ -18,7 +24,8 @@ log() {
 }
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then usage; exit 0; fi
-BACKUP_DIR="${BACKUP_DIR:-./backup}"
+BACKUP_DIR="/chand/linux/linux-dba-utilities/backup/backup_files"
+#BACKUP_DIR="${BACKUP_DIR:-./backup}"
 mkdir -p "$BACKUP_DIR"
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 FILE="$BACKUP_DIR/mariadb_$(date '+%Y-%m-%d_%H%M%S').sql"

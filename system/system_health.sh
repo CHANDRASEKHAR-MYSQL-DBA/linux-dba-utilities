@@ -1,4 +1,10 @@
 #!/bin/bash
+LOG_DIR="/chand/linux/linux-dba-utilities/logs"
+LOG_FILE="$LOG_DIR/system_health.log"
+
+mkdir -p "$LOG_DIR"
+
+exec > >(tee -a "$LOG_FILE") 2>&1
 # Common style: readable DBA report, logging, help, and exit status.
 LOG_DIR="${LOG_DIR:-./logs}"
 mkdir -p "$LOG_DIR"
