@@ -1,8 +1,8 @@
 # Linux DBA Utilities
 
-A collection of practical Linux shell scripts developed for MySQL and MariaDB database administration, system monitoring, backup management, recovery validation, and automation.
+A practical collection of Linux shell scripts for MySQL and MariaDB database administration, system monitoring, backup and recovery, logging, alerting, and Cron automation.
 
-The project is built and tested in a Rocky Linux lab environment with MariaDB and is intended as a practical DBA automation and learning toolkit.
+The project is built and tested in a Rocky Linux lab environment with MariaDB and is intended as a practical DBA automation, operations, and learning toolkit.
 
 ---
 
@@ -12,7 +12,7 @@ The project is built and tested in a Rocky Linux lab environment with MariaDB an
 
 - System health monitoring
 - CPU usage monitoring
-- Memory usage monitoring
+- Memory and swap monitoring
 - Disk usage monitoring
 - Load average monitoring
 - Network connectivity checks
@@ -25,6 +25,19 @@ The project is built and tested in a Rocky Linux lab environment with MariaDB an
 - Replication status monitoring
 - Slow query reporting
 - Database user auditing
+- Process and connection monitoring
+- Long-running query detection
+- Connection usage thresholds
+
+### DBA Health Dashboard
+
+- Consolidated MariaDB health check
+- Connection usage reporting
+- Database count reporting
+- Long-running query detection
+- Latest backup availability check
+- Overall database health status
+- Local runtime logging
 
 ### Backup & Recovery
 
@@ -36,11 +49,33 @@ The project is built and tested in a Rocky Linux lab environment with MariaDB an
 - Restore data validation
 - Automatic cleanup of test databases
 
+### Alert Management
+
+- MariaDB service failure alerts
+- High connection usage alerts
+- Long-running query alerts
+- Backup failure alerts
+- Centralized alert logging
+- Integration with DBA health and backup monitoring scripts
+
+### Logging
+
+- Centralized runtime logs
+- DBA health check logs
+- Process monitoring logs
+- Backup logs
+- System health logs
+- Alert logs
+- Log cleanup utility with retention support
+
+Runtime logs and generated backup files remain local and are excluded from GitHub.
+
 ### Automation
 
 - Cron job examples
+- Scheduled MariaDB backups
 - Scheduled system health checks
-- Scheduled database backups
+- Scheduled process monitoring
 - Scheduled backup verification
 - Scheduled backup rotation
 - Log cleanup automation
@@ -49,7 +84,7 @@ The project is built and tested in a Rocky Linux lab environment with MariaDB an
 
 - Script-specific README files
 - Sample execution outputs
-- Human-readable reports
+- Human-readable DBA reports
 - Practical Linux and MariaDB administration examples
 
 ---
@@ -65,6 +100,7 @@ The project is built and tested in a Rocky Linux lab environment with MariaDB an
 - systemctl
 - mysqldump
 - MySQL / MariaDB command-line client
+- Git / GitHub
 
 ---
 
@@ -73,12 +109,17 @@ The project is built and tested in a Rocky Linux lab environment with MariaDB an
 ```text
 linux-dba-utilities/
 │
+├── alerts/
+│   ├── README.md
+│   └── alert_manager.sh
+│
 ├── system/
 │   ├── README.md
 │   ├── system_health.sh
 │   ├── cpu_usage.sh
 │   ├── memory_usage.sh
-│   └── disk_usage.sh
+│   ├── disk_usage.sh
+│   └── uptime.sh
 │
 ├── mysql/
 │   ├── README.md
@@ -86,7 +127,8 @@ linux-dba-utilities/
 │   ├── database_size.sh
 │   ├── replication_status.sh
 │   ├── slow_query_report.sh
-│   └── user_audit.sh
+│   ├── user_audit.sh
+│   └── process_monitor.sh
 │
 ├── backup/
 │   ├── README.md
@@ -101,31 +143,18 @@ linux-dba-utilities/
 │   ├── crontab_examples.md
 │   ├── database_backup.cron
 │   ├── log_cleanup.cron
+│   ├── process_monitor.cron
 │   └── system_health.cron
+│
+├── examples/
+│   ├── README.md
+│   └── sample execution outputs
 │
 ├── logs/
 │   └── README.md
 │
-├── examples/
-│   ├── README.md
-│   ├── system_health_output.txt
-│   ├── cpu_usage_output.txt
-│   ├── memory_usage_output.txt
-│   ├── disk_usage_output.txt
-│   ├── mysql_status_output.txt
-│   ├── database_size_output.txt
-│   ├── replication_status_output.txt
-│   ├── slow_query_report_output.txt
-│   ├── user_audit_output.txt
-│   ├── backup_output.txt
-│   ├── backup_verify_output.txt
-│   ├── backup_rotation_output.txt
-│   ├── restore_test_output.txt
-│   ├── cron_system_health_output.txt
-│   ├── cron_backup_output.txt
-│   ├── cron_backup_verify_output.txt
-│   └── cron_backup_rotation_output.txt
-│
+├── dba_health_check.sh
+├── log_manager.sh
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -153,11 +182,23 @@ Make the scripts executable:
 chmod +x system/*.sh
 chmod +x mysql/*.sh
 chmod +x backup/*.sh
+chmod +x alerts/*.sh
+chmod +x dba_health_check.sh log_manager.sh
 ```
 
 ---
 
 ## Usage
+
+### DBA Health Check
+
+Run the consolidated health report:
+
+```bash
+./dba_health_check.sh
+```
+
+The report checks MariaDB service status, connections, database count, long-running queries, backup availability, and overall database health.
 
 ### System Monitoring
 
@@ -178,109 +219,86 @@ cd mysql
 ./replication_status.sh
 ./slow_query_report.sh
 ./user_audit.sh
+./process_monitor.sh
 ```
 
 ### Backup & Recovery
 
-Backup utilities are maintained separately from the MySQL administration scripts.
-
 ```bash
 cd backup
-```
-
-Create a logical backup:
-
-```bash
 ./backup.sh
-```
-
-Verify a specific backup:
-
-```bash
 ./backup_verify.sh ./backup_files/<backup_file>.sql
-```
-
-Verify the latest backup automatically:
-
-```bash
 ./verify_latest_backup.sh
-```
-
-Rotate backups according to the configured retention period:
-
-```bash
 ./backup_rotation.sh
-```
-
-Run a restore validation test:
-
-```bash
 ./restore_test.sh ./backup_files/<backup_file>.sql
 ```
 
-The restore test creates a temporary database, restores the backup, validates the restored data, and removes the temporary database.
+### Alert Management
+
+The alert manager supports four alert types:
+
+```bash
+cd alerts
+./alert_manager.sh mysql_down
+./alert_manager.sh high_connections
+./alert_manager.sh long_query
+./alert_manager.sh backup_failed
+```
+
+Alerts are written to the local `logs/alerts.log` file.
+
+### Log Management
+
+List local log files:
+
+```bash
+./log_manager.sh list
+```
+
+Clean logs older than the configured retention period:
+
+```bash
+./log_manager.sh cleanup
+```
 
 ---
 
 ## Cron Automation
 
-Cron examples are maintained in the `cron/` directory.
-
-The tested automation workflow is:
+The tested Rocky Linux workflow is:
 
 ```text
 02:00 → MariaDB backup
 02:15 → Latest backup verification
 03:00 → Backup rotation
 04:00 Sunday → Log cleanup
+Every 5 minutes → MariaDB process monitoring
 08:00 → Linux system health check
 ```
 
-Example backup Cron job:
+Example:
 
 ```cron
-0 2 * * * /path/to/linux-dba-utilities/backup/backup.sh >> /path/to/linux-dba-utilities/logs/database_backup_cron.log 2>&1
+*/5 * * * * /path/to/linux-dba-utilities/mysql/process_monitor.sh >> /path/to/linux-dba-utilities/logs/process_monitor_cron.log 2>&1
 ```
 
-See `cron/crontab_examples.md` for the complete example configuration.
+See the `cron/` directory for complete Cron examples.
 
 ---
 
 ## Logging
 
-The scripts generate runtime logs during execution.
+Utilities generate runtime logs during execution. Runtime logs are stored locally and are intentionally not committed to the repository because they may contain environment-specific information.
 
-Logs are stored locally and are intentionally not committed to the repository because runtime logs may contain environment-specific information.
-
-The `logs/` directory contains documentation about the logging approach.
+The repository includes logging documentation, while generated `.log` files remain local.
 
 ---
 
 ## Examples
 
-The `examples/` directory contains sample execution outputs generated while testing the scripts on Linux.
+The `examples/` directory contains sample execution outputs generated while testing the utilities on Rocky Linux with MariaDB.
 
-Examples include:
-
-- System health output
-- CPU monitoring output
-- Memory monitoring output
-- Disk monitoring output
-- MariaDB status output
-- Database size output
-- Backup output
-- Backup verification output
-- Backup rotation output
-- Restore validation output
-- Replication status output
-- Slow query report output
-- User audit output
-- Cron system health output
-- Cron MariaDB backup output
-- Cron backup verification output
-- Cron backup rotation output
-
-Cron execution outputs are included to demonstrate the results of scheduled automation jobs.
+Examples cover system health, MariaDB monitoring, process monitoring, backup and recovery, and Cron execution.
 
 ---
 
@@ -329,17 +347,22 @@ The test environment is used for development, validation, and demonstration purp
 - [x] Automated database backup testing
 - [x] Automated latest-backup verification testing
 - [x] Automated backup rotation testing
-- [x] Log cleanup automation example
+- [x] Log cleanup automation
+- [x] Process monitoring Cron testing
 - [x] Cron execution testing
 
 ### Phase 4 — Advanced DBA Monitoring
 
-- [ ] Process list monitoring
-- [ ] Connection monitoring
-- [ ] Table size monitoring
-- [ ] MariaDB service monitoring
-- [ ] Filesystem monitoring
-- [ ] Threshold-based alerts
+- [x] Process list monitoring
+- [x] Connection monitoring
+- [x] Long-running query detection
+- [x] MariaDB service monitoring
+- [x] Filesystem monitoring
+- [x] Threshold-based connection alerts
+- [x] Centralized runtime logging
+- [x] DBA health dashboard
+- [x] Alert management framework
+- [x] Backup failure alerts
 
 ### Phase 5 — Advanced Automation
 
