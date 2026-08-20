@@ -32,10 +32,21 @@ FILE="$BACKUP_DIR/mariadb_$(date '+%Y-%m-%d_%H%M%S').sql"
 if ! command -v mysqldump >/dev/null 2>&1; then echo "ERROR: mysqldump not found"; exit 1; fi
 START=$(date +%s)
 if mysqldump --all-databases > "$FILE"; then
-    END=$(date +%s); DURATION=$((END-START)); SIZE=$(du -h "$FILE" | awk '{print $1}')
-    RESULT="SUCCESS"; EXIT_CODE=0
+
+    END=$(date +%s)
+    DURATION=$((END-START))
+    SIZE=$(du -h "$FILE" | awk '{print $1}')
+
+    RESULT="SUCCESS"
+    EXIT_CODE=0
+
 else
-    RESULT="FAILED"; EXIT_CODE=1
+
+    RESULT="FAILED"
+    EXIT_CODE=1
+
+    /chand/linux/linux-dba-utilities/alerts/alert_manager.sh backup_failed
+
 fi
 {
 echo "========================================================"

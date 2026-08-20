@@ -21,11 +21,14 @@ echo "---------------- SYSTEM ----------------"
 if systemctl is-active --quiet mariadb; then
     echo "MariaDB Service     : RUNNING"
     DB_STATUS="PASS"
+
 else
     echo "MariaDB Service     : DOWN"
     DB_STATUS="FAIL"
-fi
 
+    /chand/linux/linux-dba-utilities/alerts/alert_manager.sh mysql_down
+
+fi
 
 echo
 echo "---------------- CONNECTIONS ----------------"
@@ -57,7 +60,15 @@ else
 fi
 
 echo "Usage               : ${USAGE}%"
+if awk "BEGIN {exit !($USAGE >= 90)}"; then
 
+    /chand/linux/linux-dba-utilities/alerts/alert_manager.sh high_connections
+
+elif awk "BEGIN {exit !($USAGE >= 70)}"; then
+
+    /chand/linux/linux-dba-utilities/alerts/alert_manager.sh high_connections
+
+fi
 
 
 echo
@@ -81,7 +92,11 @@ AND TIME >= 60;
 " 2>/dev/null)
 
 echo "Long Running Query  : ${LONG_QUERY:-0}"
+if [ "${LONG_QUERY:-0}" -gt 0 ]; then
 
+    /chand/linux/linux-dba-utilities/alerts/alert_manager.sh long_query
+
+fi
 
 
 echo
